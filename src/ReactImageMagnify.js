@@ -2,7 +2,7 @@ import detectIt from 'detect-it';
 import objectAssign from 'object-assign';
 import PropTypes from 'prop-types';
 import React from 'react';
-import ReactCursorPosition from 'react-cursor-position';
+import ReactCursorPosition from '@appinfini/react-cursor-position';
 
 import RenderEnlargedImage from './RenderEnlargedImage';
 import NegativeSpaceLens from './lens/negative-space';
@@ -317,7 +317,7 @@ class ReactImageMagnify extends React.Component {
         const Lens = this.lensComponent;
 
         return (
-            <ReactCursorPosition { ...{
+            <ReactCursorPosition {...{
                 className,
                 hoverDelayInMs,
                 hoverOffDelayInMs,
@@ -328,7 +328,7 @@ class ReactImageMagnify extends React.Component {
                 shouldStopTouchMovePropagation: true,
                 style: getContainerStyle(smallImage, style)
             }}>
-                <img { ...{
+                <img {...{
                     src: smallImage.src,
                     srcSet: smallImage.srcSet,
                     sizes: smallImage.sizes,
@@ -347,7 +347,7 @@ class ReactImageMagnify extends React.Component {
                             isTouchDetected,
                             hintTextMouse,
                             hintTextTouch
-                        }}/>
+                        }} />
                     </DisplayUntilActive>
                 }
                 {this.shouldShowLens &&
@@ -358,7 +358,7 @@ class ReactImageMagnify extends React.Component {
                         style: lensStyle
                     }} />
                 }
-                <RenderEnlargedImage { ...{
+                <RenderEnlargedImage {...{
                     containerClassName: enlargedImageContainerClassName,
                     containerDimensions: this.enlargedImageContainerDimensions,
                     containerStyle: enlargedImageContainerStyle,
@@ -372,7 +372,7 @@ class ReactImageMagnify extends React.Component {
                     isPortalEnabledForTouch: isEnlargedImagePortalEnabledForTouch,
                     isTouchDetected: this.isTouchDetected,
                     isInPlaceMode: this.isInPlaceMode
-                }}/>
+                }} />
             </ReactCursorPosition>
         );
     }
